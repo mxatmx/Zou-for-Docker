@@ -12,7 +12,7 @@ ARG ZOU_VERSION
 RUN git clone -b "${ZOU_VERSION}" --single-branch --depth 1 https://github.com/mxatmx/zou
 # Install zou from the cloned repository
 WORKDIR /opt/zou
-RUN pip install --no-cache-dir --upgrade pip wheel setuptools \
+RUN pip install --no-cache-dir --upgrade pip wheel "setuptools<72" \
     && pip install --no-cache-dir .
 FROM python:${PY_V}-slim
 USER root
